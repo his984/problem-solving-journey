@@ -1,43 +1,21 @@
 <!DOCTYPE html>
-<html lang="ar">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON2CSV</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary to Decimal Converter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <div class="container">
-    <h1>JSON2CSV</h1>
-    <div class="content">
-      <form id="converter-form">
-
-        <div class="input-group">
-          <label for="json-input">Enter JSON here:</label>
-          <textarea id="json-input" rows="10" cols="40"
-            placeholder="[&#10;  {&quot;id&quot;: 1, &quot;name&quot;: &quot;Hisham&quot;}&#10;]"></textarea>
-        </div>
-
-        <div class="output-group">
-          <label for="csv-output">CSV Result:</label>
-          <textarea id="csv-output" rows="10" cols="40" readonly></textarea>
-        </div>
-
-        <div id="message-container"></div>
-
-        <div class="buttons-group">
-          <button type="submit">Convert to CSV</button>
-          <button type="button" id="clear-btn">Clear</button>
-        </div>
-
-      </form>
+    <div class="container">
+        <h1>Bin2Dec</h1>
+        <form id="converter-form">
+            <label for="binary-input">Enter up to 8 binary digits:</label>
+            <input type="text" id="binary-input" maxlength="8" placeholder="e.g., 10110101">
+            <button type="submit">Convert</button>
+            <div id="result-display" class="result"></div>
+        </form>
     </div>
-  </div>
-  <!-- JS -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>

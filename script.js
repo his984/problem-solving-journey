@@ -1,45 +1,52 @@
-// An array of the corner IDs to easily loop through them.
-const corners = ["top-left", "top-right", "bottom-right", "bottom-left"];
+// Select the necessary elements from the DOM
+const converterForm = document.getElementById('converter-form');
+const binaryInput = document.getElementById('binary-input');
+const resultDisplay = document.getElementById('result-display');
 
-// Cache the preview box element so we don't have to select it every time.
-const previewBox = document.querySelector(".preview-box");
+// Listen for the form submission event
+converterForm.addEventListener('submit', function(event) {
+    // Prevent the default form behavior (page reload)
+    event.preventDefault();
 
-/**
- * A single function to update all UI elements at once.
- * It reads all slider values and updates the numeric displays and the preview box style.
- */
-function updateUI() {
-  // An empty array to collect the CSS values (e.g., "50px").
-  let valuesArray = [];
+    const binaryValue = binaryInput.value;
 
-  // Loop through each corner ID from our array.
-  for (const cornerId of corners) {
-    // Find the corresponding slider and span elements for the current corner.
-    const slider = document.getElementById(cornerId);
-    const valueSpan = document.getElementById(cornerId + "-value");
+    // --- 1. Input Validation ---
+    
+    // Reset any previous error styling
+    resultDisplay.classList.remove('error');
 
-    // 1. Update the number display next to the slider (e.g., "50px").
-    valueSpan.textContent = slider.value + "px";
+    // Check for empty input
+    if (binaryValue === "") {
+        resultDisplay.textContent = "Please enter a value.";
+        resultDisplay.classList.add('error');
+        return; // Stop the function
+    }
 
-    // 2. Add the value to our array for the final CSS rule.
-    valuesArray.push(slider.value + "px");
-  }
+    // Check for invalid characters (anything other than 0 or 1)
+    for (const char of binaryValue) {
+        if (char !== '0' && char !== '1') {
+            resultDisplay.textContent = "Error: Please enter only 0s and 1s.";
+            resultDisplay.classList.add('error');
+            return; // Stop the function
+        }
+    }
 
-  // 3. Join the array values into a single string (e.g., "50px 20px ...").
-  const finalCssValue = valuesArray.join(" ");
+    // --- 2. Conversion Logic ---
 
-  // 4. Apply the final CSS string to the preview box's border-radius style.
-  previewBox.style.borderRadius = finalCssValue;
-}
+    let decimalValue = 0;
+    let power = 0;
 
-// --- SETUP ---
-// This code runs once when the page loads to set up the event listeners.
+    // Loop through the binary string from RIGHT to LEFT
+    for (let i = binaryValue.length - 1; i >= 0; i--) {
+        // If the current digit is '1', add its place value (2^power) to the total
+        if (binaryValue[i] === '1') {
+            decimalValue += Math.pow(2, power);
+        }
+        
+        // Increment the power for the next position
+        power++;
+    }
 
-corners.forEach((corner) => {
-  const range = document.getElementById(corner);
-  // For each slider, add a listener that calls the main update function on any input.
-  range.addEventListener("input", updateUI);
+    // --- 3. Display the Result ---
+    resultDisplay.textContent = `Decimal Result: ${decimalValue}`;
 });
-
-// Call the function once on page load to set the correct initial state.
-updateUI();
