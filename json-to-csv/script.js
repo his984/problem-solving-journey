@@ -12,25 +12,23 @@ const messageContainer = document.getElementById("message-container");
 // });
 const csvFile = `name,email,age,country
 Loy,labramin0@mapquest.com,8,Russia
+
 Stanislaw,slissenden1@amazonaws.com,18,Israel
 Chrisse,cjeannel2@techcrunch.com,6,France`;
 
 const lines = csvFile.split("\n");
-console.log(lines);
 const [headerLine, ...contentLines] = lines;
 const headerLineArray = headerLine.split(",");
-console.log(headerLine);
-console.log(headerLineArray);
-console.log(contentLines);
 
-let finalJsonArray = [];
+const finalJsonArray = [];
 contentLines.forEach((line) => {
-  console.log(line);
+  if (line.trim() === "") return;
   const obj = {};
-  for (let i = 0; i <= contentLines.length; i++) {
-    obj[headerLineArray[i]] = line.split(",")[i];
+  const values = line.split(",");
+  for (let i = 0; i < headerLineArray.length; i++) {
+    obj[headerLineArray[i]] = values[i];
   }
-  console.log(obj);
   finalJsonArray.push(obj);
-  console.log(finalJsonArray);
 });
+
+// console.log(finalJsonArray);
