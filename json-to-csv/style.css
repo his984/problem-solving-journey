@@ -11,21 +11,25 @@ body {
   justify-content: center;
 }
 .container {
-  background-color: rgb(216, 213, 213);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: auto;
   height: auto;
-  border: 1px dashed;
   border-radius: 10px;
-  padding: 15px;
+  gap: 20px;
 }
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* background-color: red; */
+}
+section {
+  background-color: rgb(216, 213, 213);
+  border: 1px dashed;
+  padding: 15px;
+  border-radius: 10px;
 }
 .input-group,
 .output-group {
@@ -61,4 +65,9 @@ textarea {
 h1 {
   padding: 0;
   margin: 0;
+}
+#to-json-btn {
+  background-color: rgb(0, 128, 0);
+  color: white;
+  font-weight: bold;
 }

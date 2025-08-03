@@ -1,43 +1,50 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON <=> CSV Converter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section>
+        <h1>JSON <=> CSV Converter</h1>
+        <div class="content">
+          <form id="converter-form">
+            <div class="input-group">
+              <label for="json-textarea">JSON</label>
+              <textarea
+                id="json-textarea"
+                rows="10"
+                cols="40"
+                placeholder="Paste your JSON here..."
+              ></textarea>
+            </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON2CSV</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+            <div class="input-group">
+              <label for="csv-textarea">CSV</label>
+              <textarea
+                id="csv-textarea"
+                rows="10"
+                cols="40"
+                placeholder="Paste your CSV here..."
+              ></textarea>
+            </div>
 
-<body>
+            <div id="message-container"></div>
 
-  <div class="container">
-    <h1>JSON2CSV</h1>
-    <div class="content">
-      <form id="converter-form">
-
-        <div class="input-group">
-          <label for="json-input">Enter JSON here:</label>
-          <textarea id="json-input" rows="10" cols="40"
-            placeholder="[&#10;  {&quot;id&quot;: 1, &quot;name&quot;: &quot;Hisham&quot;}&#10;]"></textarea>
+            <div class="buttons-group">
+              <button type="button" id="to-json-btn">Convert to JSON</button>
+              <button type="button" id="to-csv-btn">Convert to CSV</button>
+            </div>
+            <div class="buttons-group">
+              <button type="button" id="clear-btn">Clear All</button>
+            </div>
+          </form>
         </div>
-
-        <div class="output-group">
-          <label for="csv-output">CSV Result:</label>
-          <textarea id="csv-output" rows="10" cols="40" readonly></textarea>
-        </div>
-
-        <div id="message-container"></div>
-
-        <div class="buttons-group">
-          <button id="convert-btn" type="submit">Convert to CSV</button>
-          <button type="button" id="clear-btn">Clear</button>
-        </div>
-
-      </form>
-    </div>
-  </div>
-  <!-- JS -->
-  <script src="script.js"></script>
-</body>
-
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
