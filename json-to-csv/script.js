@@ -5,6 +5,7 @@ const toJsonBtn = document.getElementById("to-json-btn");
 const toCsvBtn = document.getElementById("to-csv-btn");
 const clearBtn = document.getElementById("clear-btn");
 const messageContainer = document.getElementById("message-container");
+// CSV to JSON
 toJsonBtn.addEventListener("click", function (event) {
   event.preventDefault();
   const csv = csvTextarea.value;
@@ -42,4 +43,35 @@ clearBtn.addEventListener("click", function () {
   messageContainer.textContent = "";
   jsonTextarea.value = "";
   csvTextarea.value = "";
+});
+// Check JSON content
+function isValidJSON(str) {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+// JSON to CSV
+toCsvBtn.addEventListener("click", function () {
+  const json = jsonTextarea.value;
+  const checkJson = isValidJSON(json);
+  if (checkJson === true) {
+    const data = JSON.parse(json);
+    const headerArray = data[0];
+    const keys = Object.keys(headerArray);
+    const headerStr = keys.join(",");
+    const allDataRow = [];
+    for (let obj of data) {
+      const lines = Object.values(obj);
+      const lineStr = lines.join(",");
+      allDataRow.push(lineStr);
+    }
+    const dataBlock = allDataRow.join("\n");
+    const finalCsvString = `${headerStr}\n${dataBlock}`;
+    csvTextarea.value = finalCsvString;
+  } else {
+    messageContainer.textContent = `JSON format error!!`;
+  }
 });
