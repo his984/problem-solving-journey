@@ -8,18 +8,38 @@ const messageContainer = document.getElementById("message-container");
 toJsonBtn.addEventListener("click", function (event) {
   event.preventDefault();
   const csv = csvTextarea.value;
-  const lines = csv.split("\n");
-  const [headerLine, ...contentLines] = lines;
-  const headerLineArray = headerLine.split(",");
-  const finalJsonArray = [];
-  contentLines.forEach((line) => {
-    if (line.trim() === "") return;
-    const obj = {};
-    const values = line.split(",");
-    for (let i = 0; i < headerLineArray.length; i++) {
-      obj[headerLineArray[i]] = values[i];
+  if (csv.trim() !== "") {
+    const lines = csv.split("\n");
+    const [headerLine, ...contentLines] = lines;
+    const headerLineArray = headerLine.split(",");
+    const finalJsonArray = [];
+
+    for (const line of contentLines) {
+      if (line.trim() === "") return;
+      const values = line.split(",");
+      // ------------------------------------------------
+      if (headerLineArray.length != values.length) {
+        messageContainer.textContent = `Format error ${values.length} columns, but the header has ${headerLineArray.length}.`;
+        jsonTextarea.textContent = "";
+        return;
+      }
+      const obj = {};
+      for (let i = 0; i < headerLineArray.length; i++) {
+        obj[headerLineArray[i]] = values[i];
+      }
+      finalJsonArray.push(obj);
     }
-    finalJsonArray.push(obj);
-  });
-  jsonTextarea.textContent = JSON.stringify(finalJsonArray, null, 2);
+    messageContainer.textContent = "";
+    jsonTextarea.textContent = JSON.stringify(finalJsonArray, null, 2);
+  } else {
+    messageContainer.textContent = "CSV input cannot be empty!";
+    messageContainer.className = "error-message";
+  }
+});
+
+// Clear button
+clearBtn.addEventListener("click", function () {
+  messageContainer.textContent = "";
+  jsonTextarea.value = "";
+  csvTextarea.value = "";
 });

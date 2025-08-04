@@ -71,3 +71,11 @@ h1 {
   color: white;
   font-weight: bold;
 }
+.error-message {
+  color: red;
+}
+#message-container {
+  margin: 10px;
+  /* background-color: antiquewhite; */
+  padding: 5px 0;
+}
