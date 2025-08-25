@@ -154,6 +154,14 @@ button {
   fill: var(--danger-color);
 }
 
+.btn-remind-task.active {
+  background-color: var(--primary-color);
+}
+
+.btn-remind-task.active svg {
+  fill: white;
+}
+
 /* --- 6. Responsive Design (Media Query for larger screens) --- */
 @media (min-width: 768px) {
   .app-container {
@@ -161,11 +169,4 @@ button {
     grid-template-columns: 350px 1fr; /* Form takes 350px, list takes the rest */
     align-items: flex-start;
   }
-}
-
-.btn-remind-task.active {
-  background-color: var(--primary-color);
-}
-.btn-remind-task.active svg {
-  fill: white;
 }
