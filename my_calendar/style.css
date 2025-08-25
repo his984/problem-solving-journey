@@ -1,130 +1,171 @@
-html,
-body {
+/* --- 1. Variables and General Reset --- */
+:root {
+  --primary-color: #4a90e2;
+  --primary-hover-color: #357abd;
+  --background-color: #f4f7f9;
+  --surface-color: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --danger-color: #e74c3c;
+  --danger-hover-color: #c0392b;
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 2rem; /* 32px */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: rgb(152, 186, 189); */
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.container {
-  /* background-color: rgb(207, 206, 206); */
-  /* background-color: aqua; */
-  display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  width: auto;
-  height: auto;
-  border: 1px dashed;
-  border-radius: 10px;
-  padding: 30px;
-}
-.input-form {
-  /* background-color: red; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-.inputs {
-  /* background-color: blue; */
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: start;
-  width: 200px;
-  height: 200px;
-  padding: 10px;
-  gap: 5px;
-}
-input {
-  width: 190px;
-  height: 25px;
-  padding: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.427);
-  border-radius: 10px;
-  /* box-sizing:border-box */
-}
-label {
-  font-size: 18px;
 }
 
-#tasks-list {
-  /* background-color: green; */
+html {
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top */
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+}
+
+/* --- 2. Main App Container --- */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  /* Mobile-first: single column */
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+/* --- 3. Form and Task Sections --- */
+.form-section,
+.tasks-section {
+  background-color: var(--surface-color);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.section-title {
+  margin-bottom: var(--spacing-md);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+/* --- 4. Task List and Individual Tasks --- */
+.tasks-list-container {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
-  gap: 8px;
-  width: 300px;
-  height: 300px;
-  padding: 10px;
-  border: 0.5px solid black;
-  border-radius: 8px;
-  overflow: overlay;
+  gap: var(--spacing-md);
+  max-height: 60vh; /* Limit height and allow scrolling */
+  overflow-y: auto;
 }
+
 .task {
   display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  justify-content: space-around;
-  /* gap: 30px; */
-  width: 100%;
-  height: 50px;
-  font-size: 18px;
-  border: 1px solid black;
-  border-radius: 10px;
-  box-sizing: border-box;
-  padding: 5px;
-  /* background-color: antiquewhite; */
-}
-.btns {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 10px;
-}
-button {
-  width: 90px;
-  padding: 10px;
-  font-size: 13px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  /* background-color: red; */
-  display: flex;
   align-items: center;
-  justify-content: center;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: #fdfdfd;
+}
+
+.task p {
+  font-weight: 500;
+}
+.task span {
+  color: #666;
+  font-size: 0.9rem;
 }
 
 .actions-btns {
-  /* background-color: green; */
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* --- 5. Buttons --- */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-create-task {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-create-task:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.actions-btns .btn {
+  padding: 0.5rem;
   display: flex;
   align-items: center;
-  justify-content: end;
-  gap: 5px;
-  /* width: 150px; */
+  justify-content: center;
+  background-color: transparent;
 }
-.delete-icon {
-  font-size: 50px;
+
+.actions-btns .btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #888;
+  transition: fill 0.2s ease;
 }
-svg {
-  width: 50px;
-  height: 50px;
-  fill: red;
+
+.actions-btns .btn:hover svg {
+  fill: var(--text-color);
+}
+
+.actions-btns .btn-delete-task:hover svg {
+  fill: var(--danger-color);
+}
+
+/* --- 6. Responsive Design (Media Query for larger screens) --- */
+@media (min-width: 768px) {
+  .app-container {
+    /* On screens wider than 768px, switch to 2 columns */
+    grid-template-columns: 350px 1fr; /* Form takes 350px, list takes the rest */
+    align-items: flex-start;
+  }
+}
+
+.btn-remind-task.active {
+  background-color: var(--primary-color);
+}
+.btn-remind-task.active svg {
+  fill: white;
 }
