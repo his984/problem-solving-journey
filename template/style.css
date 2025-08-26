@@ -1,0 +1,46 @@
+/* --- 1. Variables and General Reset --- */
+:root {
+  --primary-color: #4a90e2;
+  --primary-hover-color: #357abd;
+  --background-color: #f4f7f9;
+  --surface-color: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --danger-color: #e74c3c;
+  --danger-hover-color: #c0392b;
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 2rem; /* 32px */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top */
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+}
+
+/* --- 2. Main App Container --- */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  /* Mobile-first: single column */
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}

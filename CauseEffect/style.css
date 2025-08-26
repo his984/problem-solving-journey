@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  /* background-color: rgb(235, 225, 225); */
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top */
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  /* background-color: blue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
+  gap: 1.5rem;
+}
+.names-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* background-color: red; */
+  gap: 10px;
+  /* max-height: 100px; */
+  height: 100%;
+  width: 50%;
+  /* padding: var(); */
+  /* border: 0.1rem rgba(0, 0, 0, 0.158) solid; */
+}
+.names-list p {
+  /* background-color: green; */
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  border: 0.1rem solid rgba(0, 0, 0, 0.315);
+  border-radius: 1rem;
+  padding: 0.8rem 0rem;
+  cursor: pointer;
+  background-color: white;
+}
+.person-info {
+  /* background-color: red; */
+  width: 50%;
+  height: 100%;
+  padding: 2rem;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  background-color: white;
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.315);
+}
+h3 {
+  margin-bottom: 1.5rem;
+}
