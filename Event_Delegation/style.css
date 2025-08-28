@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  /* font-family: "Roboto", sans-serif; */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  /* width: 100%; */
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: beige;
+  padding: 30px;
+}
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgb(226, 223, 218);
+  padding: 20px;
+}
+button {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+}
+.btn-1 {
+  /* background-color: red; */
+}
+.btn-2 {
+  background-color: rgba(0, 0, 255, 0.719);
+}
+.btn-3 {
+  background-color: orange;
+}
+.btn-4 {
+  background-color: green;
+}
+.result {
+  display: flex;
+  gap: 20px;
+}
+.btn-index,
+.btn-value {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  /* cursor: pointer; */
+}
+.in-btn {
+  background-color: red;
+  width: 50px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
