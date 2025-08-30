@@ -5,10 +5,6 @@
   border-radius: 10px;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
   /* font-family: "Roboto", sans-serif; */
   background-color: var(--background-color);
@@ -48,18 +44,7 @@ button {
   cursor: pointer;
   border: none;
 }
-.btn-1 {
-  /* background-color: red; */
-}
-.btn-2 {
-  background-color: rgba(0, 0, 255, 0.719);
-}
-.btn-3 {
-  background-color: orange;
-}
-.btn-4 {
-  background-color: green;
-}
+
 .result {
   display: flex;
   gap: 20px;
