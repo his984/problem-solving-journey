@@ -4,14 +4,7 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
-  /* font-family: "Roboto", sans-serif; */
-  background-color: var(--background-color);
-  color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
